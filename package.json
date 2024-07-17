@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "End-to-end tests for ElectroShop using Cypress",
   "scripts": {
+    "test": "cypress run",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --browser chrome",
+    "cypress:run:chrome": "cypress run --browser chrome",
     "cypress:run:firefox": "cypress run --browser firefox",
-    "cypress:run:edge": "cypress run --browser edge",
-    "test": "npm run cypress:run"
+    "cypress:run:edge": "cypress run --browser edge"
   },
   "devDependencies": {
     "cypress": "11.2",

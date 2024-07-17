@@ -7,7 +7,7 @@ describe("Authentication Context", () => {
     cy.window()
       .its("localStorage")
       .invoke("getItem", "user")
-      .should("not.exist");
+      .should("equal", "null");
     cy.reload();
     cy.get("button")
       .find('svg[data-testid="AccountCircleIcon"]')

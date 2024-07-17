@@ -1,12 +1,14 @@
-const { defineConfig } = require('cypress')
+const { defineConfig } = require("cypress");
 const requestMocker = require("cypress-request-mocker/plugin");
 
 module.exports = defineConfig({
   e2e: {
     // Configure your E2E tests here
     specPattern: "cypress/e2e/**/*.{cy,spec}.{js,ts}",
-    viewportWidth:1920,
-    viewportHeight:1080,
+    video: true,
+    retries: 1,
+    viewportWidth: 1920,
+    viewportHeight: 1080,
     baseUrl: "https://electroshop.hackquest.com",
     requestMocker: {
       mockDate: "2023-02-09",
@@ -28,7 +30,12 @@ module.exports = defineConfig({
     },
     setupNodeEvents(on, config) {
       requestMocker(on, config);
+      on("before:browser:launch", (browser, launchOptions) => {
+        if (browser.name === "chrome") {
+          launchOptions.push("--remote-debugging-port=9222");
+          return launchOptions;
+        }
+      });
     },
-
   },
-})
+});

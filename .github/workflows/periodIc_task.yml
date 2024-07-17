@@ -18,7 +18,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          start: npm test
+          start: npm run cypress:run:chrome
 
       # after the test run completes store videos and any screenshots
       - uses: actions/upload-artifact@v4

@@ -37,14 +37,22 @@ To open the Cypress Test Runner, use the following command:
 npm run cypress:open
 ```
 
-This will open the Cypress Test Runner, where you can select and run individual tests.
+This will open the Cypress Test Runner, where we can select and run individual tests.
+
+### Run Tests in Headless mode
+
+To run all tests in headless mode, use:
+
+```
+npm test
+```
 
 ### Run Tests in Chrome
 
 To run all tests in Chrome, use:
 
 ```
-npm run cypress:run
+npm run cypress:run:chrome
 ```
 
 ### Run Tests in Firefox
@@ -111,7 +119,7 @@ Added some custom commands to simplify common tasks:
 
 - `cy.login(email, password)`: Logs in a user
 
-You can find these commands in `cypress/support/commands.js`.
+We can find these commands in `cypress/support/commands.js`.
 
 ## CI/CD Integration
 
