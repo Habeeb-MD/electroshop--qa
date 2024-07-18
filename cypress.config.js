@@ -16,7 +16,7 @@ module.exports = defineConfig({
       harRecordOptions: {
         includeMimes: ["application/json"],
         includeHosts: ["electroshop.hackquest.com"],
-        excludePaths: [],
+        excludePaths: ["users"],
       },
       baseURL: "https://electroshop.hackquest.com",
       harSaveOptions: {},
@@ -32,10 +32,11 @@ module.exports = defineConfig({
       requestMocker(on, config);
       on("before:browser:launch", (browser, launchOptions) => {
         if (browser.name === "chrome") {
-          launchOptions.push("--remote-debugging-port=9222");
+          launchOptions.args.push("--remote-debugging-port=9222");
           return launchOptions;
         }
       });
+      require("@cypress/grep/src/plugin")(config);
     },
   },
 });

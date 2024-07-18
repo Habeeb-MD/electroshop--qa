@@ -14,7 +14,7 @@ describe("Authentication Context", () => {
       .should("not.exist");
   });
 
-  it("clears user data on logout", () => {
+  it("clears user data on logout", { tags: "@smoke" }, () => {
     cy.login("test@email.com", "password_test");
     cy.get("header").find('svg[data-testid="AccountCircleIcon"]').click();
     cy.contains("Logout").click();
@@ -22,7 +22,7 @@ describe("Authentication Context", () => {
     cy.window().its("localStorage").invoke("getItem", "user").should("be.null");
   });
 
-  it("updates user data on login", () => {
+  it("updates user data on login", { tags: "@smoke" }, () => {
     cy.visit("/login");
     cy.get("#email").type("test@email.com");
     cy.get("#password").type("password_test");

@@ -14,9 +14,12 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
-import 'cypress-request-mocker';
-require('@neuralegion/cypress-har-generator/commands');
+import "./commands";
+import "cypress-request-mocker";
+import registerCypressGrep from "@cypress/grep/src/support";
+
+registerCypressGrep();
+require("@neuralegion/cypress-har-generator/commands");
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
